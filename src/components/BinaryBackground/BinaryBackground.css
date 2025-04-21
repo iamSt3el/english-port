@@ -1,30 +1,43 @@
 /* Binary background decoration */
 .binary-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    opacity: 0.05;
-    overflow: hidden;
-    pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  opacity: 0.05;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.binary-bg.dark {
+  opacity: 0.05;
+}
+
+.binary-bg.light {
+  opacity: 0.03;
+}
+
+.binary-column {
+  position: absolute;
+  top: -100px;
+  color: var(--accent);
+  font-family: 'Fira Code', monospace;
+  font-size: 16px;
+  animation: rain linear infinite;
+}
+
+@keyframes rain {
+  0% {
+    transform: translateY(-100%);
   }
-  
-  .binary-column {
-    position: absolute;
-    top: -100px;
-    color: var(--accent);
-    font-family: 'Fira Code', monospace;
-    font-size: 16px;
-    animation: rain linear infinite;
+  100% {
+    transform: translateY(100vh);
   }
-  
-  @keyframes rain {
-    0% {
-      transform: translateY(-100%);
-    }
-    100% {
-      transform: translateY(100vh);
-    }
-  }
+}
+
+/* Theme transition effect */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}

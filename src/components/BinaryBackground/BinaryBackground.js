@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import './BinaryBackground.css';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const BinaryBackground = () => {
   const binaryBgRef = useRef(null);
+  const { darkMode } = useContext(ThemeContext);
 
   useEffect(() => {
     const createBinaryColumn = (index) => {
@@ -31,26 +33,42 @@ const BinaryBackground = () => {
       return column;
     };
 
-    if (binaryBgRef.current) {
-      const columnCount = Math.floor(window.innerWidth / 20);
-      
-      for (let i = 0; i < columnCount; i++) {
-        const column = createBinaryColumn(i);
-        binaryBgRef.current.appendChild(column);
-      }
-    }
-
-    // Cleanup function to remove all columns when component unmounts
-    return () => {
+    const clearColumns = () => {
       if (binaryBgRef.current) {
         while (binaryBgRef.current.firstChild) {
           binaryBgRef.current.removeChild(binaryBgRef.current.firstChild);
         }
       }
     };
+
+    const createColumns = () => {
+      clearColumns();
+      
+      if (binaryBgRef.current) {
+        const columnCount = Math.floor(window.innerWidth / 20);
+        
+        for (let i = 0; i < columnCount; i++) {
+          const column = createBinaryColumn(i);
+          binaryBgRef.current.appendChild(column);
+        }
+      }
+    };
+
+    // Create columns initially
+    createColumns();
+
+    // Create new columns when window is resized
+    window.addEventListener('resize', createColumns);
+
+    // Cleanup function to remove all columns and event listener when component unmounts
+    return () => {
+      clearColumns();
+      window.removeEventListener('resize', createColumns);
+    };
   }, []);
 
-  return <div className="binary-bg" ref={binaryBgRef}></div>;
+  return <div className={`binary-bg ${darkMode ? 'dark' : 'light'}`} ref={binaryBgRef}></div>;
 };
 
 export default BinaryBackground;
+

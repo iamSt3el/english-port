@@ -1,0 +1,63 @@
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary);
+    color: var(--text-light);
+    border: 1px solid var(--accent2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    transition: all 0.3s;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    box-shadow: var(--shadow);
+  }
+  
+  .theme-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .theme-toggle i {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+  
+  .theme-toggle-text {
+    display: none;
+  }
+  
+  /* Show text on larger screens */
+  @media (min-width: 768px) {
+    .theme-toggle-text {
+      display: inline;
+    }
+    
+    .theme-toggle {
+      padding: 8px 20px;
+    }
+  }
+  
+  /* Light theme specific styling */
+  .light-theme .theme-toggle {
+    background-color: var(--primary);
+    border-color: var(--accent);
+  }
+  
+  /* Animation for icon */
+  .theme-toggle i {
+    animation: spin-once 0.5s ease-out;
+  }
+  
+  @keyframes spin-once {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

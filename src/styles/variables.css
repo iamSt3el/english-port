@@ -1,11 +1,60 @@
 :root {
-    --primary: #282c34;
-    --secondary: #32363e;
-    --accent: #98c379;
-    --accent2: #61afef;
-    --accent3: #e06c75;
-    --text-light: #abb2bf;
-    --text-bright: #f8f8f2;
-    --text-dark: #282c34;
-    --shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+  /* Dark Theme (Default) Variables */
+  --primary-dark: #282c34;
+  --secondary-dark: #32363e;
+  --accent-dark: #98c379;
+  --accent2-dark: #61afef;
+  --accent3-dark: #e06c75;
+  --text-light-dark: #abb2bf;
+  --text-bright-dark: #f8f8f2;
+  --text-dark-dark: #282c34;
+  --shadow-dark: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+  /* Light Cream Theme Variables */
+  --primary-light: #f5f1e6;
+  --secondary-light: #ebe6d9;
+  --accent-light: #7e9e52;
+  --accent2-light: #4783b9;
+  --accent3-light: #c04a54;
+  --text-light-light: #5c6370;
+  --text-bright-light: #2c3e50;
+  --text-dark-light: #1c1e21;
+  --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+  /* Default to dark theme */
+  --primary: var(--primary-dark);
+  --secondary: var(--secondary-dark);
+  --accent: var(--accent-dark);
+  --accent2: var(--accent2-dark);
+  --accent3: var(--accent3-dark);
+  --text-light: var(--text-light-dark);
+  --text-bright: var(--text-bright-dark);
+  --text-dark: var(--text-dark-dark);
+  --shadow: var(--shadow-dark);
+}
+
+/* Light Theme Class */
+.light-theme {
+  --primary: var(--primary-light);
+  --secondary: var(--secondary-light);
+  --accent: var(--accent-light);
+  --accent2: var(--accent2-light);
+  --accent3: var(--accent3-light);
+  --text-light: var(--text-light-light);
+  --text-bright: var(--text-bright-light);
+  --text-dark: var(--text-dark-light);
+  --shadow: var(--shadow-light);
+}
+
+/* Dark Theme Class - explicitly set for switching back */
+.dark-theme {
+  --primary: var(--primary-dark);
+  --secondary: var(--secondary-dark);
+  --accent: var(--accent-dark);
+  --accent2: var(--accent2-dark);
+  --accent3: var(--accent3-dark);
+  --text-light: var(--text-light-dark);
+  --text-bright: var(--text-bright-dark);
+  --text-dark: var(--text-dark-dark);
+  --shadow: var(--shadow-dark);
+}

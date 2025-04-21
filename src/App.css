@@ -9,3 +9,52 @@
 main.container {
   flex: 1;
 }
+
+/* Smooth transition for theme switching */
+.App * {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease;
+}
+
+/* Light theme specific adjustments */
+.light-theme {
+  background-color: var(--primary);
+}
+
+.light-theme body::before {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.01) 10px,
+    rgba(0, 0, 0, 0.01) 12px
+  );
+}
+
+/* Console container theme-specific styling */
+.light-theme .console-container {
+  background-color: #f8f5ee;
+}
+
+.light-theme .console-header {
+  background-color: #e6e0d4;
+}
+
+/* Skill item theme-specific styles */
+.light-theme .skill-item {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Project card theme-specific styles */
+.light-theme .project-card {
+  background-color: #ffffff;
+}
+
+/* Certificate and achievement items theme-specific */
+.light-theme .certificate-item,
+.light-theme .achievement-item {
+  background-color: #ffffff;
+}
