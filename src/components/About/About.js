@@ -22,7 +22,7 @@ const About = () => {
         
         <div className="about-content">
           <div className="about-text">
-            <p>I am a software developer with a passion for Game development and AI/ML. I have a background in computer science and mathematics, and I have a strong interest in the intersection of technology and art. I am currently studying as a 2nd year student in Lovely Professional University.</p>
+            <p>I am a software developer with a passion for Game development and AI/ML. I have a background in computer science and mathematics, and I have a strong interest in the intersection of technology and art. I am currently studying as a 3nd year student in Lovely Professional University.</p>
           </div>
           
           <div className="console-container">
